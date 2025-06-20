@@ -1,0 +1,173 @@
+.dialogue-wrapper{
+    background-color: #ffd6e0; /* Lighter pink */
+}
+.girl-search{
+    border-radius: 20px;
+    height: 150px;
+    width: 500px;
+    object-fit: cover; /* Optional: ensures the image is scaled proportionally */
+
+}
+body{
+    background-color: black;
+}
+.css-zardru-MuiModal-root-MuiDialog-root .MuiDialog-paper {
+    position: relative;
+    padding: 35px!important;
+    background-color: #ffd6e0 !important;
+    height: 300px;
+    border-radius: 20px;
+
+}
+[data-square-color="white"] {
+    background: linear-gradient(
+            90deg,
+            #ffd1dc,
+            #fff5f7 40%,
+            #ffd1dc 70%,
+            #ffb6c1 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2.5s infinite linear;
+}
+.css-5c1adp-MuiContainer-root{
+    padding: 0!important;
+}
+@keyframes shimmer {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 0%; }
+    100% { background-position: 0% 0%; }
+}
+.start-button:hover {
+    background-color: #C2185B;
+}
+.css-5c1adp-MuiContainer-root{
+    margin: 0!important;
+    width: 100%;
+    padding: 0!important;
+    box-sizing: border-box !important;
+}
+.css-5c1adp-MuiContainer-root {
+    /*background-color: black!important;*/
+    color: white;
+}
+.players-container{
+    background-color:#C2185B;
+    color: #ffd6e0;
+    padding: 10px;
+    border-radius: 16px;
+
+}
+.room-id-container{
+    font-family: "Apple Braille" ,serif;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    margin: 15px auto;
+    /*height: 55px;*/
+    /*width: 50%;*/
+    border-radius: 16px;
+    background-color: #ffd6e0;
+    color: #C2185B;
+}
+.css-wi48g8-MuiStack-root{
+    gap: 10px;
+}
+.chessboard-area{
+    gap: 30px;
+    display: flex;
+    margin-left: 27%;
+    /*margin-right: auto;*/
+}
+@media (min-width: 1200px) {
+    .css-5c1adp-MuiContainer-root {
+        max-width: 100% !important;
+    }
+}
+.css-1lt5qva-MuiCardContent-root:last-child{
+    display: flex;
+    justify-content: center;
+}
+.start-button{
+    cursor: pointer;
+    padding: 10px;
+    background-color: #F06292;
+    color: white;
+    border: 0;
+    border-radius: 10px;
+    font-size: 20px;
+}
+label+.css-6h9cc6-MuiInputBase-root-MuiInput-root{
+    margin-top: 0!important;
+    padding: 0!important;
+}
+.css-2hy7sk-MuiFormLabel-root-MuiInputLabel-root{
+    top: -10px!important;
+}
+.css-asrskt-MuiDialogActions-root{
+    display: flex!important;
+    justify-content: center!important;
+    margin-top: 5px!important;
+}
+.dialogue-content{
+    text-transform: capitalize !important;
+}
+[data-square-color="black"] {
+    background: linear-gradient(
+            90deg,
+            #C2185B,   /* Dark rose pink */
+
+            #F06292,   /* Light carnation pink */
+            #C2185B 70%,
+            #FF4081    /* Neon pink */
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2.5s infinite linear;
+    box-shadow: 0 4px 15px rgba(236, 64, 122, 0.6), inset 0 1px 1px rgba(255, 192, 203, 0.6);
+}
+.cancel-modal:hover{
+    background-color: #ffd6e0;
+    border: 1px solid deeppink;
+    color: white;
+
+}
+.continue-modal:hover{
+    background-color: white;
+    border: 1px solid deeppink;
+    color: deeppink;
+
+}
+.css-15fu35s-MuiDialogActions-root{
+justify-content: center!important;
+}
+.dialogue-title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.modal-header{
+    display: flex;
+    flex-direction: column ;
+}
+.css-i37wmh-MuiTypography-root-MuiDialogTitle-root{
+    padding: 0!important;
+}
+.close-button{
+    right: 10px;
+    top:10px;
+    position: absolute;
+    margin-bottom: 10px;
+    font-size: 16px;
+    justify-content: center;
+    background-color: white;
+    color: deeppink;
+    padding: 5px;
+    border-radius: 100px;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-self: self-end;
+}
+
+
