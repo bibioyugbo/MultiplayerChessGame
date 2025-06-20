@@ -11,14 +11,14 @@
 body{
     background-color: black;
 }
-.css-zardru-MuiModal-root-MuiDialog-root .MuiDialog-paper {
-    position: relative;
-    padding: 35px !important;
-    background-color: #ffd6e0 !important;
-    height: 300px;
-    border-radius: 20px;
+/*.css-zardru-MuiModal-root-MuiDialog-root .MuiDialog-paper {*/
+/*    position: relative;*/
+/*    padding: 35px !important;*/
+/*    background-color: #ffd6e0 !important;*/
+/*    height: 300px;*/
+/*    border-radius: 20px;*/
 
-}
+/*}*/
 [data-square-color="white"] {
     background: linear-gradient(
             90deg,

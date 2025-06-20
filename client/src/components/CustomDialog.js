@@ -25,17 +25,26 @@ export default function CustomDialog({
         <div>
 
             <Dialog
+                PaperProps={{
+                    sx: {
+                        position: "relative",
+                        padding: "35px",
+                        backgroundColor: "#ffd6e0",
+                        height: 300,
+                        borderRadius: "20px"
+                    }
+                }}
                 open={open}
                 onClose={onClose}  // Allows clicking outside to close the dialog
                 aria-labelledby="dialog-title"
                 aria-describedby="dialog-description"
-                sx={{ // Custom styles
-                    "& .MuiDialog-paper": {
-                        padding: 15,
-                        borderRadius: 5,
-                        backgroundColor: "#f9f9f9", // Background color for dialog
-                    }
-                }}
+                // sx={{ // Custom styles
+                //     "& .MuiDialog-paper": {
+                //         padding: 15,
+                //         borderRadius: 5,
+                //         backgroundColor: "#f9f9f9", // Background color for dialog
+                //     }
+                // }}
             >
                 <div className={"modal-header"}>
                     <div onClick={onClose} className={"close-button"}>
@@ -58,7 +67,7 @@ export default function CustomDialog({
                         {children}
                     </div>
                 </DialogContent>
-                <DialogActions sx={{width:"100%", justifyContent:"space-between"}}>
+                <DialogActions sx={{width:"100%", justifyContent:"center"}}>
                     {showCancelButton && (
                         <Button onClick={onClose} className={"cancel-modal"} sx={{borderRadius:"15px",backgroundColor:"deeppink", width:"50%", height:"50px", color:"white"}}>
                             {cancelButtonText}
