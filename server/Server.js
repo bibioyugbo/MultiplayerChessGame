@@ -17,6 +17,7 @@ const port = process.env.PORT|| 3000
 // upgrade http server to websocket server
 const io = new Server(server, {
     cors: '*', // allow connection from any origin
+    methods: ["GET", "POST"]
 });
 
 const rooms = new Map();
@@ -138,9 +139,11 @@ io.on('connection', (socket) => {
 
 });
 
-// server.listen(port, () => {
-//     console.log(`listening on *:${port}`);
-// });
+app.get("/", (req, res) => {
+    console.log("Chess Game Backend");
+    res.send("Chess Game Backend");
+});
+
 server.listen(port, () => {
     console.log(`Socket.IO server running on ${port}`);
 });
