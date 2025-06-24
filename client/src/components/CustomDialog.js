@@ -67,7 +67,7 @@ export default function CustomDialog({
                         {children}
                     </div>
                 </DialogContent>
-                <DialogActions sx={{width:"100%", justifyContent:"center"}}>
+                <DialogActions sx={{width:"100%", justifyContent:"space-between"}}>
                     {showCancelButton && (
                         <Button onClick={onClose} className={"cancel-modal"} sx={{borderRadius:"15px",backgroundColor:"deeppink", width:"50%", height:"50px", color:"white"}}>
                             {cancelButtonText}

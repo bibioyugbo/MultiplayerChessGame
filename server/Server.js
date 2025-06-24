@@ -2,14 +2,17 @@ const express = require('express');
 const { Server } = require("socket.io");
 const { v4: uuidV4 } = require('uuid');
 const http = require('http');
+const env = require('dotenv')
 
+env.config()
 const app = express(); // initialize express
 
 const server = http.createServer(app);
 
 
 // set port to value received from environment variable or 8080 if null
-const port = process.env.PORT || 8080
+const port = process.env.PORT|| 3000
+
 
 // upgrade http server to websocket server
 const io = new Server(server, {
@@ -20,7 +23,6 @@ const rooms = new Map();
 
 
 // io.connection
-
 io.on('connection', (socket) => {
     // socket refers to the client socket that just got connected.
     // each socket is assigned an id
@@ -136,6 +138,9 @@ io.on('connection', (socket) => {
 
 });
 
+// server.listen(port, () => {
+//     console.log(`listening on *:${port}`);
+// });
 server.listen(port, () => {
-    console.log(`listening on *:${port}`);
+    console.log(`Socket.IO server running on ${port}`);
 });
