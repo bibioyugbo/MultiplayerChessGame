@@ -124,7 +124,7 @@ function Game({ players, room, orientation, cleanup }) {
             {/*<div className={"room-id-container"}>*/}
             {/*   */}
             {/*</div>*/}
-            <CardContent sx={{backgroundColor:"#ffd6e0", borderRadius:"15px", color:"#C2185B", margin:"10px auto", width:"40%"}}>
+            <CardContent sx={{backgroundColor:"#ffd6e0", borderRadius:"15px", color:"#C2185B", margin:"10px auto", width:"50%"}}>
                 <Typography variant="h5">Room ID: {room}</Typography>
             </CardContent>
             <div className={"chessboard-area"}>
