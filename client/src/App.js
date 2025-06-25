@@ -49,6 +49,7 @@ export default function App() {
     return (
         <Container>
             {open && <CustomDialog
+
                 onClose={handleClose}
                 showCancelButton={false}
                 modalImg={newUserImg}

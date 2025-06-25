@@ -143,7 +143,7 @@ function Game({ players, room, orientation, cleanup }) {
                         <List>
                             <div className={"players-container"}>PLAYERS</div>
                             {players.map((p) => (
-                                <ListItem key={p.id}>
+                                <ListItem style={{color:"white", textTransform:"capitalize"}} key={p.id}>
                                     <ListItemText primary={p.username} />
                                 </ListItem>
                             ))}

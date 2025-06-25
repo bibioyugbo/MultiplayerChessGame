@@ -31,7 +31,7 @@ export default function CustomDialog({
                         padding: "35px",
                         backgroundColor: "#ffd6e0",
                         height: 300,
-                        borderRadius: "20px"
+                        borderRadius: "20px",
                     }
                 }}
                 open={open}
@@ -54,26 +54,25 @@ export default function CustomDialog({
                 </div>
 
                 <DialogTitle id="dialog-title" className={"dialogue-title"}
-                             sx={{fontSize: "1.5rem", fontWeight: "bold"}}>
+                             sx={{fontSize: "1.5rem", fontWeight: "bold", padding:0}}>
                     {title}
 
                 </DialogTitle>
-                <DialogContent>
+                <DialogContent sx={{padding:0}}>
                     {/*<DialogContentText className={"dialogue-title"} id="dialog-description"*/}
                     {/*                   sx={{marginBottom: 2, textTransform: "uppercase"}}>*/}
                     {/* ~{contentText}~*/}
                     {/*</DialogContentText>*/}
-                    <div className={"dialogue-content"}>
+
                         {children}
-                    </div>
                 </DialogContent>
-                <DialogActions sx={{width:"100%", justifyContent:"space-between"}}>
+                <DialogActions sx={{width:"100%", display:"flex", justifyContent:`${showCancelButton? "space-between":"center"}`}}>
                     {showCancelButton && (
                         <Button onClick={onClose} className={"cancel-modal"} sx={{borderRadius:"15px",backgroundColor:"deeppink", width:"50%", height:"50px", color:"white"}}>
                             {cancelButtonText}
                         </Button>
                     )}
-                    <Button onClick={handleContinue} className={"continue-modal"}  sx={{borderRadius:"15px",backgroundColor:"#ffd6e0", width:"50%", height:"50px", color:"deeppink", border: "1px solid"}} >
+                    <Button onClick={handleContinue} className={"continue-modal"}  sx={{borderRadius:"15px", justifyContent:"center", display:"flex", backgroundColor:"#ffd6e0", width:"50%", height:"50px", color:"deeppink", border: "1px solid"}} >
                         {continueButtonText}
                     </Button>
                 </DialogActions>
