@@ -8,10 +8,10 @@ export default function InitGame({ setRoom, setOrientation, setPlayers }) {
     const [roomDialogOpen, setRoomDialogOpen] = useState(false);
     const [roomInput, setRoomInput] = useState(''); // input state
     const [roomError, setRoomError] = useState('');
-    const [open, setOpen] = useState(true);
+    const [open, setOpen] = useState(false);
 
     const handleClose = () => {
-        setOpen(!open)
+        setRoomDialogOpen(!roomDialogOpen)
     };
 
     return (
@@ -24,7 +24,7 @@ export default function InitGame({ setRoom, setOrientation, setPlayers }) {
                 onClose={handleClose}
                 modalImg={joinImg}
                 open={roomDialogOpen}
-                handleClose={() => setRoomDialogOpen(false)}
+                handleClose={() => setRoomDialogOpen(!roomDialogOpen)}
                 title="Select Room to Join"
                 contentText="Enter a valid room ID to join the room"
                 handleContinue={() => {
@@ -37,7 +37,7 @@ export default function InitGame({ setRoom, setOrientation, setPlayers }) {
                         setRoom(r?.roomId); // set room to the room ID
                         setPlayers(r?.players); // set players array to the array of players in the room
                         setOrientation("black"); // set orientation as black
-                        setRoomDialogOpen(false); // close dialog
+                        setRoomDialogOpen(!roomDialogOpen); // close dialog
                     });
                 }}
             >
@@ -79,7 +79,7 @@ export default function InitGame({ setRoom, setOrientation, setPlayers }) {
                 style={{backgroundColor:"white", color:"#C2185B"}}
                 className={"start-button"}
                 onClick={() => {
-                    setOpen(true)
+                    // setOpen(!open)
                     setRoomDialogOpen(true)
                 }}
             >

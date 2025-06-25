@@ -49,8 +49,8 @@ export default function App() {
     return (
         <Container>
             {open && <CustomDialog
-
-                onClose={handleClose}
+                closeButton={false}
+                // onClose={handleClose}
                 showCancelButton={false}
                 modalImg={newUserImg}
                 open={!usernameSubmitted} // leave open if username has not been selected

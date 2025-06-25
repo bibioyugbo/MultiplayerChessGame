@@ -121,11 +121,12 @@ function Game({ players, room, orientation, cleanup }) {
     // Game component returned jsx
     return (
         <Stack>
-            <div className={"room-id-container"}>
-                <CardContent>
-                    <Typography variant="h5">Room ID: {room}</Typography>
-                </CardContent>
-            </div>
+            {/*<div className={"room-id-container"}>*/}
+            {/*   */}
+            {/*</div>*/}
+            <CardContent sx={{backgroundColor:"#ffd6e0", borderRadius:"15px", color:"#C2185B", margin:"10px auto", width:"40%"}}>
+                <Typography variant="h5">Room ID: {room}</Typography>
+            </CardContent>
             <div className={"chessboard-area"}>
                 <div className="board" style={{
                     maxWidth: 650,

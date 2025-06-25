@@ -12,7 +12,7 @@ export default function CustomDialog({
                                          onClose,
                                          children,
                                          title,
-                                         contentText,
+                                         closeButton= true,
                                          handleContinue,
                                          showCancelButton = true,
                                          continueButtonText = "Continue",
@@ -47,9 +47,12 @@ export default function CustomDialog({
                 // }}
             >
                 <div className={"modal-header"}>
-                    <div onClick={onClose} className={"close-button"}>
-                        &times;
-                    </div>
+                    { closeButton &&
+                        <div onClick={onClose} className={"close-button"}>
+                            &times;
+                        </div>
+                    }
+
                     <img src={modalImg} alt={"Search image"} className={"girl-search"}/>
                 </div>
 
