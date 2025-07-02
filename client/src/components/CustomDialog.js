@@ -30,6 +30,7 @@ export default function CustomDialog({
                         position: "relative",
                         padding: "35px",
                         backgroundColor: "#ffd6e0",
+                        // width:{xm:30, sm:500},
                         height: 300,
                         borderRadius: "20px",
                     }
@@ -53,7 +54,9 @@ export default function CustomDialog({
                         </div>
                     }
 
-                    <img src={modalImg} alt={"Search image"} className={"girl-search"}/>
+                        <img src={modalImg} alt={"Search image"} className={"girl-search"}/>
+
+
                 </div>
 
                 <DialogTitle id="dialog-title" className={"dialogue-title"}

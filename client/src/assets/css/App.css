@@ -1,15 +1,33 @@
-.dialogue-wrapper{
-    background-color: #ffd6e0; /* Lighter pink */
+
+@media (max-width: 640px) {
+    .girl-search{
+        width: 320px !important;
+    }
+    .board{
+        width: 350px;
+        height: 350px;
+    }
+    .chessboard-area{
+        gap: 10px!important;
+    }
 }
+
+
+
+
+.dialogue-wrapper{
+    background-color: #ffd6e0;
+}
+
 .girl-search{
     border-radius: 20px;
     height: 150px;
     width: 500px;
     object-fit: cover; /* Optional: ensures the image is scaled proportionally */
-
 }
 body{
-    background-color: black;
+    margin: 0;
+    /*background-color: black;*/
 }
 /*.css-zardru-MuiModal-root-MuiDialog-root .MuiDialog-paper {*/
 /*    position: relative;*/
@@ -52,10 +70,14 @@ body{
     color: white;
 }
 .players-container{
+    display: flex;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
     background-color:#C2185B;
     color: #ffd6e0;
-    padding: 10px;
-    border-radius: 16px;
+    padding: 5px;
+    border-radius: 10px;
 
 }
 .room-id-container{
@@ -71,12 +93,32 @@ body{
 .css-wi48g8-MuiStack-root{
     gap: 10px;
 }
-.chessboard-area{
-    gap: 30px;
-    display: flex;
-    margin-left: 27%;
-    /*margin-right: auto;*/
+/*.board{*/
+/*    width: 100%;*/
+/*    aspect-ratio: 1;*/
+/*    background-color: white;*/
+/*    max-width: 650px;*/
+/*    !*max-height: 650px;*!*/
+/*    !*flex-grow: 1;*!*/
+/*}*/
+.board {
+    width: 100%;
+    max-width: 650px;
+    aspect-ratio: 1;
+    min-height: 300px;
 }
+.chessboard-area {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 10px;
+}
+/*.chessboard-area{*/
+/*    gap: 30px;*/
+/*    display: flex;*/
+/*    !*margin-left: 27%;*!*/
+/*    !*margin-right: auto;*!*/
+/*}*/
 @media (min-width: 1200px) {
     .css-5c1adp-MuiContainer-root {
         max-width: 100% !important;
@@ -144,6 +186,8 @@ justify-content: center!important;
     justify-content: center;
 }
 .modal-header{
+    justify-content: center;
+    align-items: center;
     display: flex;
     flex-direction: column ;
 }

@@ -47,7 +47,7 @@ export default function App() {
     }, [socket]);
 
     return (
-        <Container>
+        <Container >
             {open && <CustomDialog
                 closeButton={false}
                 // onClose={handleClose}

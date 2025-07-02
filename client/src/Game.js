@@ -120,38 +120,49 @@ function Game({ players, room, orientation, cleanup }) {
 
     // Game component returned jsx
     return (
-        <Stack>
-            {/*<div className={"room-id-container"}>*/}
-            {/*   */}
-            {/*</div>*/}
-            <CardContent sx={{backgroundColor:"#ffd6e0", borderRadius:"15px", color:"#C2185B", margin:"10px auto", width:"50%"}}>
-                <Typography variant="h5">Room ID: {room}</Typography>
-            </CardContent>
-            <div className={"chessboard-area"}>
-                <div className="board" style={{
-                    maxWidth: 650,
-                    maxHeight: 650,
-                    flexGrow: 1,
-                }}>
+        <Stack sx={{ justifyContent:"center",
+                    display:"flex", alignItems:"center", flexDirection: "column", overflow: "auto",
+                    backgroundColor:"black", height:"100vh", padding:"15px"
+                  }}>
+            {players.length > 0 && (
+                <Box sx={{display:"flex", justifyContent:"center", alignItems:"center"}}>
+                    <div className={"players-container"}>PLAYERS:</div>
+                    <List>
+                        {players.map((p) => (
+                            <ListItem style={{color:"white", textTransform:"capitalize"}} key={p.id}>
+                                <ListItemText primary={p.username} />
+                            </ListItem>
+                        ))}
+                    </List>
+                </Box>
+            )}
+            <CardContent sx={{backgroundColor:"#ffd6e0", borderRadius:"10px", padding:{xs: "5px", sm:"10px"}, color:"#C2185B",display:"flex",gap:"3px", alignItems:"center", margin:"10px auto"}}>
+                <Typography sx={{ fontSize:{xs:"16px", sm:"20px"}, textWrap:"nowrap"}} >Room ID: {room}</Typography>
+                <button style={{cursor:"pointer"}}>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#C2185B" d="M3.25 9A5.75 5.75 0 0 1 9 3.25h7.013a.75.75 0 0 1 0 1.5H9A4.25 4.25 0 0 0 4.75 9v7.107a.75.75 0 0 1-1.5 0z"/><path fill="#C2185B" d="M18.403 6.793a44.4 44.4 0 0 0-9.806 0a2.01 2.01 0 0 0-1.774 1.76a42.6 42.6 0 0 0 0 9.894a2.01 2.01 0 0 0 1.774 1.76c3.241.362 6.565.362 9.806 0a2.01 2.01 0 0 0 1.774-1.76a42.6 42.6 0 0 0 0-9.894a2.01 2.01 0 0 0-1.774-1.76"/></svg>
+                </button>
+                </CardContent>
+
+
+            <Box className={"chessboard-area"}>
+                <Box
+                    sx={{
+                        width: "100%",
+                        maxWidth: { xs: "90vw", sm: "500px", md: "600px" }, // responsive width
+                        aspectRatio: "1",
+                        backgroundColor: "white",
+                        minWidth: "300px", // Optional safeguard
+                        mx: "auto"
+                    }}
+                >
                     <Chessboard
                         position={fen}
                         onPieceDrop={onDrop}
                         boardOrientation={orientation}
                     />
-                </div>
-                {players.length > 0 && (
-                    <Box>
-                        <List>
-                            <div className={"players-container"}>PLAYERS</div>
-                            {players.map((p) => (
-                                <ListItem style={{color:"white", textTransform:"capitalize"}} key={p.id}>
-                                    <ListItemText primary={p.username} />
-                                </ListItem>
-                            ))}
-                        </List>
-                    </Box>
-                )}
-            </div>
+                </Box>
+
+            </Box>
             <CustomDialog // Game Over CustomDialog
                 open={Boolean(over)}
                 title={over}
