@@ -25,13 +25,32 @@ export default function CustomDialog({
         <div>
 
             <Dialog
+                sx={{width:"100%", display:"flex", justifyContent:"center",
+                    "& .MuiDialog-container": {
+                        // alignItems: "center",
+                        // justifyContent: "center",
+                    },
+                    "& .MuiDialog-paper": {
+                        overflow: "hidden",
+                        display: "flex",
+                        flexDirection: "column",
+                        // alignItems: "center",
+                        // justifyContent: "center",
+                    },
+                }}
+
                 PaperProps={{
                     sx: {
-                        position: "relative",
+                        // position: "relative",
                         padding: "35px",
+                        display:"flex",
+                        justifyContent:"center",
+                        alignItems: "center",
                         backgroundColor: "#ffd6e0",
-                        // width:{xm:30, sm:500},
+                        // maxWidth:"1000px",
+                        margin:0,
                         height: 300,
+                        overflow: "hidden",
                         borderRadius: "20px",
                     }
                 }}
@@ -47,24 +66,24 @@ export default function CustomDialog({
                 //     }
                 // }}
             >
-                <div className={"modal-header"}>
-                    { closeButton &&
-                        <div onClick={onClose} className={"close-button"}>
-                            &times;
-                        </div>
-                    }
-
+                    <div className={"modal-header"}>
+                        { closeButton &&
+                            <div onClick={onClose} className={"close-button"}>
+                                &times;
+                            </div>
+                        }
                         <img src={modalImg} alt={"Search image"} className={"girl-search"}/>
 
+                    </div>
 
-                </div>
+
 
                 <DialogTitle id="dialog-title" className={"dialogue-title"}
                              sx={{fontSize: "1.5rem", fontWeight: "bold", padding:0}}>
                     {title}
 
                 </DialogTitle>
-                <DialogContent sx={{padding:0}}>
+                <DialogContent sx={{padding:0, display:"flex", justifyContent:"center"}}>
                     {/*<DialogContentText className={"dialogue-title"} id="dialog-description"*/}
                     {/*                   sx={{marginBottom: 2, textTransform: "uppercase"}}>*/}
                     {/* ~{contentText}~*/}

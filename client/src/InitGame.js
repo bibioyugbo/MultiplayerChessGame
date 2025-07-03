@@ -1,4 +1,4 @@
-import { Button, Stack, TextField } from "@mui/material";
+import {Box, Button, Stack, TextField} from "@mui/material";
 import { useState } from "react";
 import CustomDialog from "./components/CustomDialog";
 import socket from './Socket.js';
@@ -59,32 +59,33 @@ export default function InitGame({ setRoom, setOrientation, setPlayers }) {
             </CustomDialog>
 
 
-            {/* Button for starting a game */}
-            <button
-                className={"start-button"}
-                // variant="contained"
-                onClick={() => {
-                    socket.emit("createRoom", (r) => {
-                        console.log(r);
-                        setRoom(r);
-                        setOrientation("white");
-                    });
-                }}
-            >
-                Start a game
-            </button>
-            {/* Button for joining a game */}
-            <button
+            <Box sx={{display:"flex", justifyContent:"center", flexDirection:"column", gap:"10px"}}>
+                <button
+                    className={"start-button"}
+                    // variant="contained"
+                    onClick={() => {
+                        socket.emit("createRoom", (r) => {
+                            console.log(r);
+                            setRoom(r);
+                            setOrientation("white");
+                        });
+                    }}
+                >
+                    Start a game
+                </button>
+                {/* Button for joining a game */}
+                <button
+                    style={{backgroundColor:"white", color:"#C2185B"}}
+                    className={"start-button"}
+                    onClick={() => {
+                        // setOpen(!open)
+                        setRoomDialogOpen(true)
+                    }}
+                >
+                    Join a game
+                </button>
+            </Box>
 
-                style={{backgroundColor:"white", color:"#C2185B"}}
-                className={"start-button"}
-                onClick={() => {
-                    // setOpen(!open)
-                    setRoomDialogOpen(true)
-                }}
-            >
-                Join a game
-            </button>
         </Stack>
     );
 }

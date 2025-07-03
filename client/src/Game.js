@@ -1,20 +1,19 @@
 import { useState, useMemo, useCallback, useEffect } from "react";
 import { Chessboard } from "react-chessboard";
+import { Snackbar } from "@mui/material";
 import { Chess } from "chess.js";
 import CustomDialog from "./components/CustomDialog";
 import socket from "./Socket";
-import customWhiteKing from '../src/assets/images/girl-search.jpeg';
 import girlSearch from "../src/assets/images/girl-search.jpeg"
 import {
-    Card,
+
     CardContent,
     List,
     ListItem,
     ListItemText,
-    ListSubheader,
     Stack,
     Typography,
-    Box,
+    Box, Tooltip,
 } from "@mui/material";
 
 
@@ -22,19 +21,28 @@ function Game({ players, room, orientation, cleanup }) {
     const chess = useMemo(() => new Chess(), []); // <- 1
     const [fen, setFen] = useState(chess.fen()); // <- 2
     const [over, setOver] = useState("");
-    const customPieces = {
-        wK: customWhiteKing, // Use the imported image
-        // Add other pieces similarly
-    };
-    const [open, setOpen] = useState(false);
+    const [copied, setCopied] = useState(false);
 
-    const handleOpen = () => {
-        setOpen(true);
-    };
-
+    // const customPieces = {
+    //     wK: customWhiteKing, // Use the imported image
+    //     // Add other pieces similarly
+    // };
+    // const [open, setOpen] = useState(false);
     const handleClose = () => {
-        setOpen(false); // This is the function passed to `CustomDialog` to close it
+        setCopied(false);
     };
+    const handleCopy = (text)=>{
+        navigator.clipboard.writeText(text)
+            .then(() => {
+                console.log("Copied to clipboard:", text);
+                // Optional: show success toast or message here
+                setCopied(true);
+                setTimeout(() => setCopied(false), 2000);
+            })
+            .catch((err) => {
+                console.error("Failed to copy:", err);
+            });
+    }
 
     const makeAMove = useCallback(
         (move) => {
@@ -137,10 +145,23 @@ function Game({ players, room, orientation, cleanup }) {
                 </Box>
             )}
             <CardContent sx={{backgroundColor:"#ffd6e0", borderRadius:"10px", padding:{xs: "5px", sm:"10px"}, color:"#C2185B",display:"flex",gap:"3px", alignItems:"center", margin:"10px auto"}}>
-                <Typography sx={{ fontSize:{xs:"16px", sm:"20px"}, textWrap:"nowrap"}} >Room ID: {room}</Typography>
-                <button style={{cursor:"pointer"}}>
+                <Typography sx={{ fontSize:{xs:"14px", sm:"20px"}, textWrap:"nowrap"}} >Room ID: {room}</Typography>
+                <Tooltip title="Copy Room ID">
+                <button  onClick={()=>handleCopy(room)} style={{cursor:"pointer", background: "none",
+                    border: "none",
+                    padding: 0,
+                    margin: 0,
+                    outline: "none"}}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#C2185B" d="M3.25 9A5.75 5.75 0 0 1 9 3.25h7.013a.75.75 0 0 1 0 1.5H9A4.25 4.25 0 0 0 4.75 9v7.107a.75.75 0 0 1-1.5 0z"/><path fill="#C2185B" d="M18.403 6.793a44.4 44.4 0 0 0-9.806 0a2.01 2.01 0 0 0-1.774 1.76a42.6 42.6 0 0 0 0 9.894a2.01 2.01 0 0 0 1.774 1.76c3.241.362 6.565.362 9.806 0a2.01 2.01 0 0 0 1.774-1.76a42.6 42.6 0 0 0 0-9.894a2.01 2.01 0 0 0-1.774-1.76"/></svg>
                 </button>
+                    <Snackbar
+                        open={copied}
+                        autoHideDuration={2000}
+                        onClose={handleClose}
+                        message="Room ID copied!"
+                        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+                    />
+                </Tooltip>
                 </CardContent>
 
 
