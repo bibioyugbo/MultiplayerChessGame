@@ -96,13 +96,13 @@ export default function App() {
                     cleanup={cleanup}
                 />
             ) : (
-                <div style={{backgroundColor:"#F4C2C2"}}>
+
                     <InitGame
                         setRoom={setRoom}
                         setOrientation={setOrientation}
                         setPlayers={setPlayers}
                     />
-                </div>
+
 
             )}
         </Container>

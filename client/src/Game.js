@@ -133,19 +133,22 @@ function Game({ players, room, orientation, cleanup }) {
                     backgroundColor:"black", height:"100vh", padding:"15px"
                   }}>
             {players.length > 0 && (
-                <Box sx={{display:"flex", justifyContent:"center", alignItems:"center"}}>
+                // <Box sx={{display:"flex", justifyContent:"center", gap:"8px", alignItems:"center"}}>
+                <div style={{display:'flex', flexDirection:"column", justifyContent:"center",alignItems:"center" }}>
                     <div className={"players-container"}>PLAYERS:</div>
-                    <List>
+                    <div style={{display:"flex", flexDirection:"column"}}>
                         {players.map((p) => (
-                            <ListItem style={{color:"white", textTransform:"capitalize"}} key={p.id}>
+                            <ListItem style={{color:"white", textTransform:"capitalize", padding:"0px"}} key={p.id}>
+                                <span style={{fontSize: '16px', marginRight:"3px", color: "#C2185B"}}>•</span>
                                 <ListItemText primary={p.username} />
                             </ListItem>
                         ))}
-                    </List>
-                </Box>
+                    </div>
+                </div>
+                // </Box>
             )}
-            <CardContent sx={{backgroundColor:"#ffd6e0", borderRadius:"10px", padding:{xs: "5px", sm:"10px"}, color:"#C2185B",display:"flex",gap:"3px", alignItems:"center", margin:"10px auto"}}>
-                <Typography sx={{ fontSize:{xs:"14px", sm:"20px"}, textWrap:"nowrap"}} >Room ID: {room}</Typography>
+            <CardContent sx={{backgroundColor:"#ffd6e0", borderRadius:"10px", padding:{xs: "3px", sm:"10px"}, color:"#C2185B",display:"flex",gap:"3px", alignItems:"center", margin:"5px auto"}}>
+                <Typography sx={{ fontSize:{xs:"12px", sm:"20px"}, textWrap:"nowrap"}} >Room ID: {room}</Typography>
                 <Tooltip title="Copy Room ID">
                 <button  onClick={()=>handleCopy(room)} style={{cursor:"pointer", background: "none",
                     border: "none",

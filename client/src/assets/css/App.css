@@ -71,7 +71,7 @@ body{
 }
 .players-container{
     display: flex;
-    height: 30px;
+    /*height: 30px;*/
     justify-content: center;
     align-items: center;
     background-color:#C2185B;

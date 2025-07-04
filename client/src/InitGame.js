@@ -16,6 +16,7 @@ export default function InitGame({ setRoom, setOrientation, setPlayers }) {
 
     return (
         <Stack
+            bgcolor={"#F4C2C2"}
             justifyContent="center"
             alignItems="center"
             sx={{ py: 1, height: "100vh"}}

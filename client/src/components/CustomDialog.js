@@ -45,7 +45,7 @@ export default function CustomDialog({
                         padding: "35px",
                         display:"flex",
                         justifyContent:"center",
-                        alignItems: "center",
+                        // alignItems: "center",
                         backgroundColor: "#ffd6e0",
                         // maxWidth:"1000px",
                         margin:0,
