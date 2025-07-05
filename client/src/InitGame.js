@@ -27,7 +27,7 @@ export default function InitGame({ setRoom, setOrientation, setPlayers }) {
                 continueButtonText={"Join Game"}
                 open={roomDialogOpen}
                 handleClose={() => setRoomDialogOpen(!roomDialogOpen)}
-                title="Select Room to Join"
+                title="Enter Room to Join"
                 contentText="Enter a valid room ID to join the room"
                 handleContinue={() => {
                     // join a room
