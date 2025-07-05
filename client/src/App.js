@@ -4,15 +4,14 @@ import Game from "./Game";
 import socket from './Socket.js';
 import CustomDialog from "./components/CustomDialog";
 import newUserImg from "./assets/images/new-image.webp";
+import instructionImg from "./assets/images/instruction.svg";
 import InitGame from "./InitGame";
 
 export default function App() {
     const [username, setUsername] = useState('');
     const [open, setOpen] = useState(true);
 
-    const handleClose = () => {
-        setOpen(!open)
-    };
+
 
     // indicates if a username has been submitted
     const [usernameSubmitted, setUsernameSubmitted] = useState(false);
@@ -20,6 +19,10 @@ export default function App() {
     const [room, setRoom] = useState("");
     const [orientation, setOrientation] = useState("");
     const [players, setPlayers] = useState([]);
+    const [openInstructions, setOpenInstructions] = useState(false);
+    const handleContinue = () => {
+        setOpenInstructions(!openInstructions)
+    };
 
     // resets the states responsible for initializing a game
     const cleanup = useCallback(() => {
@@ -62,7 +65,9 @@ export default function App() {
                     handleContinue={() => { // fired when continue is clicked
                         if (!username) return; // if username hasn't been entered, do nothing
                         socket.emit("username", username); // emit a websocket event called "username" with the username as data
-                        setUsernameSubmitted(true); // indicate that username has been submitted
+                        setUsernameSubmitted(true);// indicate that username has been submitted
+                        setOpenInstructions(true)
+
                     }}
                 >
                     <TextField // Input
@@ -89,6 +94,9 @@ export default function App() {
                     />
                 </CustomDialog> }
 
+
+
+
                 {room ? (
                     <Game
                         room={room}
@@ -108,6 +116,13 @@ export default function App() {
 
 
                 )}
+                <CustomDialog open={openInstructions}   customImgClass={'instruction-img'}  modalImg={instructionImg} handleContinue={handleContinue} closeButton={false} showCancelButton={false} continueButtonText={"Got it!"}>
+                    <div className={"game-instruction"}>
+                       <div>Click <button className={"start-game"}>Start game</button> to begin a new game</div>
+                     <div> Click <button className={"join-game"}>Join game</button> and enter RoomID to join an already existing game </div>
+                    </div>
+                </CustomDialog>
+
             </Container>
         </div>
 

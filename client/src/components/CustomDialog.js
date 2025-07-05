@@ -2,9 +2,7 @@ import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
-import girlSearch from '../assets/images/girl-search.jpeg'
 
 export default function CustomDialog({
                                          open,
@@ -17,6 +15,9 @@ export default function CustomDialog({
                                          showCancelButton = true,
                                          continueButtonText = "Continue",
                                          cancelButtonText = "Cancel",
+                                         customImgClass,
+
+
                                      }) {
 
 
@@ -71,7 +72,7 @@ export default function CustomDialog({
                                 &times;
                             </div>
                         }
-                        <img src={modalImg} alt={"Search image"} className={"girl-search"}/>
+                        <img  src={modalImg} alt={"Search image"} className={customImgClass?customImgClass:"girl-search"}/>
 
                     </div>
 
@@ -97,7 +98,7 @@ export default function CustomDialog({
                             {cancelButtonText}
                         </Button>
                     )}
-                    <Button onClick={handleContinue} className={"continue-modal"}  sx={{borderRadius:"15px", justifyContent:"center", display:"flex", backgroundColor:"#ffd6e0", width:"50%", height:"50px", color:"deeppink", border: "1px solid"}} >
+                    <Button onClick={handleContinue} className={"continue-modal"}   sx={{borderRadius:"15px", justifyContent:"center",  width:!showCancelButton?"100%":"50%", display:"flex", backgroundColor:"#ffd6e0", height:"50px", color:"deeppink", border: "1px solid"}} >
                         {continueButtonText}
                     </Button>
                 </DialogActions>

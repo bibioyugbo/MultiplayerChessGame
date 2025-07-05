@@ -10,10 +10,30 @@
     .chessboard-area{
         gap: 10px!important;
     }
+    .instruction-img{
+        height: 50px!important;
+        width: 150px!important;
+    }
+    .game-instruction{
+        width: 300px;
+        margin-top: 0!important;
+        gap: 15px!important;
+        align-items: flex-start!important;
+        font-size: 16px!important;
+
+    }
 }
 
-#root{
-    /*background-color: #F4C2C2 ;*/
+.game-instruction{
+    font-size: 18px;
+    gap: 8px;
+    justify-content: center;
+    margin-top: 5px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    /*align-items: center;*/
 }
 
 
@@ -26,6 +46,10 @@
     height: 150px;
     width: 500px;
     object-fit: cover; /* Optional: ensures the image is scaled proportionally */
+}
+.instruction-img{
+    height: 100px;
+    width: 300px;
 }
 body{
     margin: 0;
@@ -129,6 +153,22 @@ body{
 .css-1lt5qva-MuiCardContent-root:last-child{
     display: flex;
     justify-content: center;
+}
+.start-game{
+    background-color: #F06292;
+    color: white;
+    border-radius: 5px;
+    margin:0 2px;
+    width: 100px;
+    height: 40px;
+}
+.join-game{
+    background-color: white;
+    color: #C2185B;
+    border-radius: 5px;
+    margin:0 2px;
+    width: 100px;
+    height: 40px;
 }
 .start-button{
     cursor: pointer;
