@@ -16,24 +16,27 @@ export default function InitGame({ setRoom, setOrientation, setPlayers }) {
 
     return (
         <Stack
-            bgcolor={"#F4C2C2"}
+            // bgcolor={"#F4C2C2"}
             justifyContent="center"
             alignItems="center"
-            sx={{ py: 1, height: "100vh"}}
+            sx={{ py: 1, height: "100vh",  width:"100%"}}
         >
             <CustomDialog
                 onClose={handleClose}
                 modalImg={joinImg}
+                continueButtonText={"Join Game"}
                 open={roomDialogOpen}
                 handleClose={() => setRoomDialogOpen(!roomDialogOpen)}
                 title="Select Room to Join"
                 contentText="Enter a valid room ID to join the room"
                 handleContinue={() => {
                     // join a room
+
                     if (!roomInput) return; // if given room input is valid, do nothing.
                     socket.emit("joinRoom", { roomId: roomInput }, (r) => {
                         // r is the response from the server
                         if (r.error) return setRoomError(r.message); // if an error is returned in the response set roomError to the error message and exit
+                        // console.log("Room error",r.error)
                         console.log("response:", r);
                         setRoom(r?.roomId); // set room to the room ID
                         setPlayers(r?.players); // set players array to the array of players in the room

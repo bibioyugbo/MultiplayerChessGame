@@ -45,7 +45,6 @@ export default function CustomDialog({
                         padding: "35px",
                         display:"flex",
                         justifyContent:"center",
-                        // alignItems: "center",
                         backgroundColor: "#ffd6e0",
                         // maxWidth:"1000px",
                         margin:0,
@@ -79,7 +78,7 @@ export default function CustomDialog({
 
 
                 <DialogTitle id="dialog-title" className={"dialogue-title"}
-                             sx={{fontSize: "1.5rem", fontWeight: "bold", padding:0}}>
+                             sx={{fontSize: "1.5rem",textTransform:"capitalize", fontWeight: "bold", padding:0}}>
                     {title}
 
                 </DialogTitle>

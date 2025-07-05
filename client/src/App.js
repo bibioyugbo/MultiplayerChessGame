@@ -47,7 +47,9 @@ export default function App() {
     }, [socket]);
 
     return (
-        <Container>
+        <Container
+            // sx={{backgroundColor:"black"}}
+        >
             {open && <CustomDialog
 
                 closeButton={false}
