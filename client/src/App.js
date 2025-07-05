@@ -47,57 +47,58 @@ export default function App() {
     }, [socket]);
 
     return (
-        <Container
-            // sx={{backgroundColor:"black"}}
-        >
-            {open && <CustomDialog
-
-                closeButton={false}
-                // onClose={handleClose}
-                showCancelButton={false}
-                modalImg={newUserImg}
-                open={!usernameSubmitted} // leave open if username has not been selected
-                title="Enter a Player Name" // Title of dialog
-                handleContinue={() => { // fired when continue is clicked
-                    if (!username) return; // if username hasn't been entered, do nothing
-                    socket.emit("username", username); // emit a websocket event called "username" with the username as data
-                    setUsernameSubmitted(true); // indicate that username has been submitted
-                }}
+        <div style={{backgroundColor:"#F4C2C2"}}>
+            <Container
+                // sx={{backgroundColor:"black"}}
             >
-                <TextField // Input
-                    autoFocus // automatically set focus on input (make it active).
-                    margin="dense"
-                    id="username"
-                    // label="Username"
-                    name="username"
-                    value={username}
-                    required
-                    onChange={(e) => setUsername(e.target.value)} // update username state with value
-                    type="text"
-                    fullWidth
-                    variant="standard"
-                    sx={{
-                        '& .MuiInput-underline:after': {
-                            borderBottomColor: '#C2185B', // Change the focus color of the underline
-                        },
-                        '& .MuiInputLabel-root.Mui-focused': {
-                            color: 'pink', // Change the focus color of the label
-                        },
+                {open && <CustomDialog
+
+                    closeButton={false}
+                    // onClose={handleClose}
+                    showCancelButton={false}
+                    modalImg={newUserImg}
+                    open={!usernameSubmitted} // leave open if username has not been selected
+                    title="Enter a Player Name" // Title of dialog
+                    handleContinue={() => { // fired when continue is clicked
+                        if (!username) return; // if username hasn't been entered, do nothing
+                        socket.emit("username", username); // emit a websocket event called "username" with the username as data
+                        setUsernameSubmitted(true); // indicate that username has been submitted
                     }}
+                >
+                    <TextField // Input
+                        autoFocus // automatically set focus on input (make it active).
+                        margin="dense"
+                        id="username"
+                        // label="Username"
+                        name="username"
+                        value={username}
+                        required
+                        onChange={(e) => setUsername(e.target.value)} // update username state with value
+                        type="text"
+                        fullWidth
+                        variant="standard"
+                        sx={{
+                            '& .MuiInput-underline:after': {
+                                borderBottomColor: '#C2185B', // Change the focus color of the underline
+                            },
+                            '& .MuiInputLabel-root.Mui-focused': {
+                                color: 'pink', // Change the focus color of the label
+                            },
+                        }}
 
-                />
-            </CustomDialog> }
+                    />
+                </CustomDialog> }
 
-            {room ? (
-                <Game
-                    room={room}
-                    orientation={orientation}
-                    username={username}
-                    players={players}
-                    // the cleanup function will be used by Game to reset the state when a game is over
-                    cleanup={cleanup}
-                />
-            ) : (
+                {room ? (
+                    <Game
+                        room={room}
+                        orientation={orientation}
+                        username={username}
+                        players={players}
+                        // the cleanup function will be used by Game to reset the state when a game is over
+                        cleanup={cleanup}
+                    />
+                ) : (
 
                     <InitGame
                         setRoom={setRoom}
@@ -106,7 +107,9 @@ export default function App() {
                     />
 
 
-            )}
-        </Container>
+                )}
+            </Container>
+        </div>
+
     );
 }

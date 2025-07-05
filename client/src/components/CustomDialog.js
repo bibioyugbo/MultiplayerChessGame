@@ -82,14 +82,15 @@ export default function CustomDialog({
                     {title}
 
                 </DialogTitle>
-                <DialogContent sx={{padding:0, display:"flex", justifyContent:"center"}}>
+                {children &&  <DialogContent sx={{padding:0, display:"flex", justifyContent:"center"}}>
                     {/*<DialogContentText className={"dialogue-title"} id="dialog-description"*/}
                     {/*                   sx={{marginBottom: 2, textTransform: "uppercase"}}>*/}
                     {/* ~{contentText}~*/}
                     {/*</DialogContentText>*/}
 
-                        {children}
-                </DialogContent>
+                    {children}
+                </DialogContent> }
+
                 <DialogActions sx={{width:"100%", display:"flex", justifyContent:`${showCancelButton? "space-between":"center"}`}}>
                     {showCancelButton && (
                         <Button onClick={onClose} className={"cancel-modal"} sx={{borderRadius:"15px",backgroundColor:"deeppink", width:"50%", height:"50px", color:"white"}}>

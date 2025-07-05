@@ -129,8 +129,7 @@ function Game({ players, room, orientation, cleanup }) {
     // Game component returned jsx
     return (
         <Stack sx={{ justifyContent:"center",
-                    display:"flex", alignItems:"center", flexDirection: "column", overflow: "auto",
-                    backgroundColor:"black", height:"100vh", padding:"15px"
+                    display:"flex", alignItems:"center", flexDirection: "column", overflow: "auto", height:"100vh", padding:"15px"
                   }}>
             {players.length > 0 && (
                 // <Box sx={{display:"flex", justifyContent:"center", gap:"8px", alignItems:"center"}}>
@@ -138,7 +137,7 @@ function Game({ players, room, orientation, cleanup }) {
                     <div className={"players-container"}>PLAYERS:</div>
                     <div style={{display:"flex", flexDirection:"column"}}>
                         {players.map((p) => (
-                            <ListItem style={{color:"white", textTransform:"capitalize", padding:"0px"}} key={p.id}>
+                            <ListItem style={{color:"black", textTransform:"capitalize", padding:"0px"}} key={p.id}>
                                 <span style={{fontSize: '16px', marginRight:"3px", color: "#C2185B"}}>•</span>
                                 <ListItemText primary={p.username} />
                             </ListItem>
@@ -190,6 +189,10 @@ function Game({ players, room, orientation, cleanup }) {
             <CustomDialog // Game Over CustomDialog
                 open={Boolean(over)}
                 title={over}
+                closeButton={false}
+                continueButtonText={"Exit Game"}
+                showCancelButton={false}
+                onClose={false}
                 modalImg={girlSearch}
                 contentText={over}
                 handleContinue={() => {
